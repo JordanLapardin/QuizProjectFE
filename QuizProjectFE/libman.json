@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "bootstrap-colorpicker@3.4.0",
+      "destination": "wwwroot/lib/bootstrap-colorpicker/",
+      "files": [
+        "js/bootstrap-colorpicker.min.js",
+        "css/bootstrap-colorpicker.min.css",
+        "css/bootstrap-colorpicker.min.css.map",
+        "js/bootstrap-colorpicker.min.js.map"
+      ]
+    }
+  ]
+}

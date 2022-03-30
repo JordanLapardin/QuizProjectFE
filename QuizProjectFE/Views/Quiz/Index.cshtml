@@ -1,0 +1,62 @@
+﻿@model IEnumerable<QuizProjectFE.Models.Quiz>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuizId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuizTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuizTopic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassP)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizTopic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassP)
+            </td>
+            <td>
+                <a href="/Question" >Questions</a>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.QuizId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.QuizId }) |
+                @Html.ActionLink("Delete", "Delete", new {id=item.QuizId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

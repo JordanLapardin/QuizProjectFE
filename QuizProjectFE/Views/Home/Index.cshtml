@@ -1,0 +1,56 @@
+﻿@{
+    @using Microsoft.AspNetCore.Http;
+}
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    var Creator = "EmptyCreator";
+
+    if (Context.Session.Keys.Any(c=>c.Equals("creator")))
+    {
+        Creator = Context.Session.GetString("creator");
+    }
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div class = "row border shadow rounded">
+        <div class ="col-1"></div>
+        <div class="col ">
+            <form asp-action="SetCreator">
+                <div class="row m-4 border shadow rounded">
+                        <div class="col ">
+                            <label>Set the name of the Creator</label>
+                        </div>
+                        <div class="col d-flex align-items-center justify-content-center p-1">
+                            <input id="creatorName" name="creatorName" type="text" value="@Creator" class="h-100 w-100" />
+                        </div>
+                </div>
+                
+                <div class="row m-4">
+                        <div class="col text-center">
+                            <input type="submit" value="Save Settings" class="btn btn-info" />
+                        </div>
+                </div>
+                <div>
+                    Links to Areas:
+                    <div>
+                        <a href="/Quiz">Quizzes</a>
+                    </div>
+                    <div>
+                        <a href="/Question" >Questions</a>
+                    </div>
+                    <div>
+                        <a href="/Option">Options</a>
+                    </div>
+                    <div>
+                        <p> </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

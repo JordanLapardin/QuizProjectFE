@@ -1,0 +1,47 @@
+﻿@model QuizProjectFE.Models.Question
+
+<h4>Question</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="QuestionId" class="control-label"></label>
+                <input asp-for="QuestionId" class="form-control" />
+                <span asp-validation-for="QuestionId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionTopic" class="control-label"></label>
+                <input asp-for="QuestionTopic" class="form-control" />
+                <span asp-validation-for="QuestionTopic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionText" class="control-label"></label>
+                <input asp-for="QuestionText" class="form-control" />
+                <span asp-validation-for="QuestionText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionImg" class="control-label"></label>
+                <input asp-for="QuestionImg" class="form-control" />
+                <span asp-validation-for="QuestionImg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuizId" class="control-label"></label>
+                <input asp-for="QuizId" class="form-control" />
+                <span asp-validation-for="QuizId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
