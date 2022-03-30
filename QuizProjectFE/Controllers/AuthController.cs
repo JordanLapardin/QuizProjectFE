@@ -8,6 +8,8 @@ namespace QuizProjectFE.Controllers
     public class AuthController : Controller
     {
         private readonly HttpClient _client;
+        
+        //contractor injection
         public AuthController(IHttpClientFactory httpClientFactory)
         {
             _client = httpClientFactory.CreateClient("ApiClient");
