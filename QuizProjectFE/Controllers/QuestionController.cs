@@ -1,25 +1,30 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using QuizProjectFE.Models;
 using QuizProjectFE.Models.DTO;
 using QuizProjectFE.Services;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace QuizProjectFE.Controllers
 {
     public class QuestionController : Controller
     {
+        IWebHostEnvironment _HostEnviroment;
         private readonly IApiRequest<Quiz> _quizService;
         private readonly IApiRequest<Question> _questionService;
 
         private string controllername2 = "Quiz";
         private string controllername = "Question";
 
-        public QuestionController(IApiRequest<Question> request, IApiRequest<Quiz> request2)
+        public QuestionController(IApiRequest<Question> request, IApiRequest<Quiz> request2, IWebHostEnvironment webHost)
         {
             _questionService = request;
             _quizService = request2;
+            _HostEnviroment = webHost;
         }
        
         // GET: QuestionController
@@ -149,6 +154,19 @@ namespace QuizProjectFE.Controllers
             {
                 return View();
             }
+        }
+        [HttpPost]
+        public async Task<IActionResult> Uploadfile(IFormFile file)
+        {
+            string folderRoot = Path.Combine(_HostEnviroment.ContentRootPath, "wwwroot\\Uploads");
+            string filePath = Path.Combine(folderRoot, file.FileName);
+
+            using (var fs = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(fs);
+            }
+
+            return Ok(new {success = true, message = "file Uploaded"});
         }
     }
 }
