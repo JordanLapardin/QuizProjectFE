@@ -11,6 +11,11 @@
         "css/bootstrap-colorpicker.min.css.map",
         "js/bootstrap-colorpicker.min.js.map"
       ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "dropzone@5.9.3",
+      "destination": "wwwroot/dropzone/"
     }
   ]
 }
