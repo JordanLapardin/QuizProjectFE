@@ -60,7 +60,7 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-<script src="~/lib/dropzone/min/dropzone.min.js"></script>
+<script src="~/dropzone/min/dropzone.min.js"></script>
 
 <script type="text/javascript">
     Dropzone.options.dropzoneForm = {
@@ -69,7 +69,7 @@
         acceptedFiles: "image/*"
         success: function (file, response){
             $('#QuestionImg').val(file.upload.filename)
-            file.previewElement.classList.Add("dz-success");
+            file.previewElement.classList.add("dz-success");
         }
     }
 </script>

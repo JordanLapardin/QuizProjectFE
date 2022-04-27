@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using QuizProjectFE.Models;
 using QuizProjectFE.Models.DTO;
 using QuizProjectFE.Services;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -157,7 +158,15 @@ namespace QuizProjectFE.Controllers
         [HttpPost]
         public async Task<IActionResult> Uploadfile(IFormFile file)
         {
+            string folderRoot = Path.Combine(_HostEnviroment.ContentRootPath, "wwwroot\\Uploads");
+            string filePath = Path.Combine(folderRoot, file.FileName);
 
+            using (var fs = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(fs);
+            }
+
+            return Ok(new {success = true, message = "file Uploaded"});
         }
     }
 }
