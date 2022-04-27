@@ -65,10 +65,11 @@
 <script type="text/javascript">
     Dropzone.options.dropzoneForm = {
         paramName:"file",
-        maxFile: 1,
-        acceptedFiles: "image/*"
+        maxFiles: 1,
+        acceptedFiles: "image/*",
         success: function (file, response){
             $('#QuestionImg').val(file.upload.filename)
+            console.log(file)
             file.previewElement.classList.add("dz-success");
         }
     }
