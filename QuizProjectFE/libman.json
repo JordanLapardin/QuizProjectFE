@@ -17,5 +17,16 @@
       "library": "dropzone@5.9.3",
       "destination": "wwwroot/dropzone/"
     }
+  ,
+{
+  "provider": "cdnjs",
+  "library": "dropzone@5.9.3",
+  "destination": "wwwroot/dropzone/",
+  "files": [
+    "min/dropzone.min.js",
+    "min/basic.min.css",
+    "min/dropzone.min.css"
   ]
+}
+]
 }
