@@ -37,6 +37,7 @@ namespace QuizProjectFE
             services.AddHttpClient("ApiClient", c =>
             {
                 c.BaseAddress = new Uri(Configuration["OnlineUri"]);
+
                 c.DefaultRequestHeaders.Clear();
                 c.DefaultRequestHeaders.Accept
                     .Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
