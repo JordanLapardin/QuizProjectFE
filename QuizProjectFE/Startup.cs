@@ -36,7 +36,6 @@ namespace QuizProjectFE
 
             services.AddHttpClient("ApiClient", c =>
             {
-
                 c.BaseAddress = new Uri(Configuration["OnlineUri"]);
 
                 c.DefaultRequestHeaders.Clear();
