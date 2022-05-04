@@ -36,7 +36,7 @@ namespace QuizProjectFE
 
             services.AddHttpClient("ApiClient", c =>
             {
-                c.BaseAddress = new Uri(Configuration["UriThingy"]);
+                c.BaseAddress = new Uri(Configuration["https://quizapi.azure-api.net"]);
                 c.DefaultRequestHeaders.Clear();
                 c.DefaultRequestHeaders.Accept
                     .Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
