@@ -158,7 +158,7 @@ namespace QuizProjectFE.Controllers
         [HttpPost]
         public async Task<IActionResult> Uploadfile(IFormFile file)
         {
-            string folderRoot = Path.Combine(_HostEnviroment.ContentRootPath, "wwwroot\\Uploads");
+            string folderRoot = Path.Combine(_HostEnviroment.ContentRootPath, "wwwroot\\Pictures\\Uploads");
             string filePath = Path.Combine(folderRoot, file.FileName);
 
             using (var fs = new FileStream(filePath, FileMode.Create))
