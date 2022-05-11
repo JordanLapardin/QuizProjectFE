@@ -16,7 +16,7 @@ namespace QuizProjectFE.Services
             _context = accessor.HttpContext;
             _client = httpClientFactory.CreateClient("ApiClient");
 
-            if(_context.Session.GetString("Token")!=null)
+            if (_context.Session.GetString("Token") != null)
             {
                 _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _context.Session.GetString("Token"));
             }
@@ -58,7 +58,7 @@ namespace QuizProjectFE.Services
         //edit
         public T Edit(string controllername, int id, T entity)
         {
-            var response = _client.PutAsJsonAsync($"{controllername}/{id}",entity).Result;
+            var response = _client.PutAsJsonAsync($"{controllername}/{id}", entity).Result;
 #if DEBUG
             response.EnsureSuccessStatusCode();
 #endif
