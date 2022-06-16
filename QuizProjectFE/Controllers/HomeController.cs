@@ -21,6 +21,7 @@ namespace QuizProjectFE.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private HttpClient _client;
+
         public HomeController(ILogger<HomeController> logger, IHttpClientFactory _factory)
         {
             _client = _factory.CreateClient("ApiClient");
@@ -28,7 +29,7 @@ namespace QuizProjectFE.Controllers
         }
         public IActionResult QuizList()
         {
-            string apiURL = "https://localhost:44388/api/quiz";
+            string apiURL = "https://quizapi20220511163943.azurewebsites.net/api/quiz";
 
             using (HttpClient client = new HttpClient())
             {
@@ -96,7 +97,7 @@ namespace QuizProjectFE.Controllers
         //{
         //    //gather report data
         //    //shoot me im missing code
-        //    var response = _reportservice.GetAll("Report", "QuestionPerQuizzes");
+        //    var response = _client.GetAll("Report", "QuestionsPerQuizReport");
         //    //create string
         //    var stream = new MemoryStream();
         //    //create writeer

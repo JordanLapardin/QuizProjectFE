@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using QuizProjectFE.Models;
+using QuizProjectFE.Models.Testing;
 using QuizProjectFE.Services;
 using System;
 using System.Collections.Generic;
@@ -57,6 +58,8 @@ namespace QuizProjectFE
                 c.IdleTimeout = TimeSpan.FromSeconds(300);
             });
 
+            //Testing
+            services.AddSingleton<BuiltinDatabase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
