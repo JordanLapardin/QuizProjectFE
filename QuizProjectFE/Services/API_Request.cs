@@ -8,7 +8,14 @@ namespace QuizProjectFE.Services
 {
     public class API_Request<T> : IApiRequest<T>
     {
-        //http client
+
+        ///<summary>
+        ///http client & contexy set up
+        ///</summary>
+        ///<param name="_client">Http client</param>
+        ///<param name="_context">Http context</param>
+        ///<returns>Gives client authorization </returns>
+        ///<created>Jordan, 20/06/22</created>
         private readonly HttpClient _client;
         private readonly HttpContext _context;
         public API_Request(IHttpClientFactory httpClientFactory, IHttpContextAccessor accessor)
@@ -21,7 +28,11 @@ namespace QuizProjectFE.Services
                 _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _context.Session.GetString("Token"));
             }
         }
-        //get all
+        /// <summary>
+        /// Gets all of given controller name for example Quiz
+        /// </summary>
+        /// <param name="controllername"></param>
+        /// <returns>Returns all of (controller name) </returns>
         public List<T> GetAll(string controllername)
         {
             var response = _client.GetAsync(controllername).Result;
@@ -33,7 +44,12 @@ namespace QuizProjectFE.Services
 
             return thing;
         }
-        //get single
+        /// <summary>
+        /// get single entry of given controller name for example Quiz
+        /// </summary>
+        /// <param name="controllername"></param>
+        /// <param name="id"></param>
+        /// <returns>Single entry with matching id </returns>
         public T GetSingle(string controllername, int id)
         {
 
@@ -46,7 +62,12 @@ namespace QuizProjectFE.Services
             return thing;
 
         }
-        //create
+        /// <summary>
+        /// create a entry of given controller name for example Quiz
+        /// </summary>
+        /// <param name="controllername"></param>
+        /// <param name="entity"></param>
+        /// <returns>Creates a entry from given details</returns>
         public T Create(string controllername, T entity)
         {
             var response = _client.PostAsJsonAsync(controllername, entity).Result;

@@ -6,24 +6,24 @@
 
 <h1>Create</h1>
 
-<h4>QuestionCreate</h4>
+<h4>Question Create</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="QuestionTopic" class="control-label"></label>
+                <label asp-for="QuestionTopic" class="control-label">Question Topic</label>
                 <input asp-for="QuestionTopic" class="form-control" />
                 <span asp-validation-for="QuestionTopic" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="QuestionText" class="control-label"></label>
+                <label asp-for="QuestionText" class="control-label">Question Text</label>
                 <input asp-for="QuestionText" class="form-control" />
                 <span asp-validation-for="QuestionText" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="QuestionImg" class="control-label"></label>
+                <label asp-for="QuestionImg" class="control-label">Question Image</label>
                 <input asp-for="QuestionImg" class="form-control" />
                 <span asp-validation-for="QuestionImg" class="text-danger"></span>
             </div>
@@ -33,7 +33,7 @@
                 <span asp-validation-for="QuizId" class="text-danger"></span>
             </div>*@
             <div class="form-group">
-                <label asp-for="QuizId" class="control-label"></label>
+                <label asp-for="QuizId" class="control-label">Linking Quiz</label>
                 <select asp-for="QuizId" asp-items="@ViewBag.quizeselect" class="form-control">
                 </select>
                 

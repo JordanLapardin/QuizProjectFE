@@ -17,30 +17,30 @@
 }
 <h1>Create</h1>
 
-<h4>QuizCreate</h4>
+<h4>Quiz Create</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="QuizTitle" class="control-label"></label>
+                <label asp-for="QuizTitle" class="control-label">Quiz Title</label>
                 <input asp-for="QuizTitle" class="form-control" />
                 <span asp-validation-for="QuizTitle" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="QuizTopic" class="control-label"></label>
+                <label asp-for="QuizTopic" class="control-label">Quiz Topic</label>
                 <input asp-for="QuizTopic" class="form-control" />
                 <span asp-validation-for="QuizTopic" class="text-danger"></span>
             </div>
             <div class="form-group">
                 
-                <label asp-for="CreatorName" class="control-label"></label>
+                <label asp-for="CreatorName" class="control-label">Creator Name</label>
                 <input asp-for="CreatorName" class="form-control" id="creatorName" name="creatorName" type="text" value="@Creator"/>
                 <span asp-validation-for="CreatorName" class="text-danger" ></span>
             </div>
             <div class="form-group">
-                <label asp-for="PassP" class="control-label"></label>
+                <label asp-for="PassP" class="control-label">Pass Precentage</label>
                 <input asp-for="PassP" class="form-control" />
                 <span asp-validation-for="PassP" class="text-danger"></span>
             </div>
